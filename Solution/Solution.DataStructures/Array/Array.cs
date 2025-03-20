@@ -41,8 +41,24 @@ namespace Solution.DataStructures.Array
             if (Count == 0)
                 throw new Exception("There is no more item to be removed from to the array.");
             var item = InnerList[Count - 1];
-            Count--;
+            if (Count > 0)
+                Count--;
+            if (InnerList.Length / 4 == Count)
+                HalfArray();
             return item;
+        }
+
+        private void HalfArray()
+        {
+            if (InnerList.Length > 2)
+            {
+                var temp = new T[InnerList.Length / 2];
+                for (int i = 0; i < InnerList.Length / 4; i++)
+                {
+                    temp[i] = InnerList[i];
+                }
+                InnerList = temp;
+            }
         }
 
         public object Clone()
