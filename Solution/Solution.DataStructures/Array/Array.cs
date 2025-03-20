@@ -39,6 +39,12 @@ namespace Solution.DataStructures.Array
             Count++;
         }
 
+        public void AddRange(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+                Add(item);
+        }
+
         private void DoubleArray()
         {
             var temp = new T[InnerList.Length * 2];
@@ -62,6 +68,34 @@ namespace Solution.DataStructures.Array
             if (InnerList.Length / 4 == Count)
                 HalfArray();
             return item;
+        }
+
+        public bool Remove(T item)
+        {
+            if (Count == 0)
+                throw new Exception("There is no more item to be removed from to the array.");
+            var temp = new T[InnerList.Length - 1];
+            var index = 0;
+            for (int i = 0; i < InnerList.Length; i++)
+            {
+                if (InnerList[i].Equals(item))
+                    index = i;
+            }
+            if (index != 0)
+            {
+                int j = 0;
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    if (j == index)
+                        j++;
+                    temp[i] = InnerList[j];
+                    j++;
+                }
+            }
+            else
+                return false;
+            InnerList = temp;
+            return true;
         }
 
         private void HalfArray()

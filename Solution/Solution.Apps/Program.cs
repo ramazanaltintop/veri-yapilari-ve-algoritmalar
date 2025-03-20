@@ -6,7 +6,21 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            ShallowCopyDeepCopy();
+            GenericArray8();
+        }
+
+        private static void GenericArray8()
+        {
+            var arr = new Solution.DataStructures.Array.Array<int>(1, 3, 5, 7);
+            var list = new List<int>() { 9, 11, 13, 15 };
+
+            arr.AddRange(list);
+
+            //arr.Remove(15);
+            arr.Remove(9);
+
+            foreach (var item in arr)
+                Console.WriteLine(item);
         }
 
         private static void ShallowCopyDeepCopy()
