@@ -6,7 +6,7 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            Intro();
+            
         }
 
         private static void Intro()
