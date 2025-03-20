@@ -15,6 +15,14 @@ namespace Solution.DataStructures.Array
             Count = 0;
         }
 
+        public Array(params T[] initial)
+        {
+            InnerList = new T[initial.Length];
+            Count = 0;
+            foreach (var item in initial)
+                Add(item);
+        }
+
         public void Add(T item)
         {
             if (InnerList.Length == Count)
