@@ -6,7 +6,45 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            GenericArray3();
+            GenericArray4();
+        }
+
+        private static void GenericArray4()
+        {
+            var arr = new Solution
+                            .DataStructures
+                            .Array
+                            .Array<int>();
+
+            arr.Add(25);
+            arr.Add(50);
+            arr.Add(75);
+            arr.Add(85);
+            arr.Add(91);
+
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("---");
+
+            using (IEnumerator<int> enumerator = arr.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    var item = enumerator.Current;
+                    Console.WriteLine(item);
+                }
+            }
+
+            Console.WriteLine("---");
+
+            arr.Where(x => x % 2 == 0)
+                .ToList()
+                .ForEach(x => Console.WriteLine(x));
+
+            Console.WriteLine($"{arr.Count} / {arr.Capacity}");
         }
 
         private static void GenericArray3()

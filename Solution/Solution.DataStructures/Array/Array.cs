@@ -68,12 +68,13 @@ namespace Solution.DataStructures.Array
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            //return InnerList.Select(x => x).GetEnumerator();
+            return InnerList.Take(Count).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
