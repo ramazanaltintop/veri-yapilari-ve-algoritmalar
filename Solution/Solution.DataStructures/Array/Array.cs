@@ -15,6 +15,12 @@ namespace Solution.DataStructures.Array
             Count = 0;
         }
 
+        public void Add(T item)
+        {
+            InnerList[Count] = item;
+            Count++;
+        }
+
         public object Clone()
         {
             throw new NotImplementedException();
