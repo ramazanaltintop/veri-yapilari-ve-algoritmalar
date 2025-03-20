@@ -6,7 +6,34 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            GenericArray7();
+            ShallowCopyDeepCopy();
+        }
+
+        private static void ShallowCopyDeepCopy()
+        {
+            var arr = new Solution.DataStructures.Array.Array<int>(2, 4, 6, 8);
+            var crr = (Solution.DataStructures.Array.Array<int>)arr.Clone();
+            //var crr = arr.Clone() as Solution.DataStructures.Array.Array<int>;
+
+            // Klonlanmis dizi uzerinde yapilan degisikliklerin diger nesne uzerinde etkisi olmaz!
+            //arr.Add(7);
+            crr.Add(7);
+
+            foreach (var item in arr)
+            {
+                Console.Write($"{item,-3}");
+            }
+
+            Console.WriteLine($"{arr.Count}/{arr.Capacity}");
+
+            Console.WriteLine();
+
+            foreach (var item in crr)
+            {
+                Console.Write($"{item,-3}");
+            }
+
+            Console.WriteLine($"{crr.Count}/{crr.Capacity}");
         }
 
         private static void GenericArray7()

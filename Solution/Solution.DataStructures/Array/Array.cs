@@ -79,7 +79,17 @@ namespace Solution.DataStructures.Array
 
         public object Clone()
         {
-            throw new NotImplementedException();
+            // Shallow Copy
+            // Klonlama oldugu gibi yapilir.
+            //return this.MemberwiseClone();
+            // Deep Copy
+            // Herseyi sifirdan olusturursunuz.
+            var arr = new Array<T>();
+            foreach (var item in this)
+            {
+                arr.Add(item);
+            }
+            return arr;
         }
 
         public IEnumerator<T> GetEnumerator()
