@@ -23,6 +23,14 @@ namespace Solution.DataStructures.Array
                 Add(item);
         }
 
+        public Array(IEnumerable<T> collection)
+        {
+            InnerList = new T[collection.ToArray().Length];
+            Count = 0;
+            foreach (var item in collection)
+                Add(item);
+        }
+
         public void Add(T item)
         {
             if (InnerList.Length == Count)

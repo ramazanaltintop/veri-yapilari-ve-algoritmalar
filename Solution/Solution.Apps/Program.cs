@@ -6,7 +6,26 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            GenericArray5();
+            GenericArray6();
+        }
+
+        private static void GenericArray6()
+        {
+            var p1 = new Solution.DataStructures.Array.Array<int>(5, 6, 7, 8);
+            var p2 = new int[] { 1, 2, 3, 4 };
+            var p3 = new List<int>() { 9, 10, 11, 12 };
+            var p4 = new ArrayList() { 13, 14, 15, 16 };
+
+            var arr = new Solution
+                .DataStructures
+                .Array
+                .Array<int>(p3);
+            // p4 hata verir.
+
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void GenericArray5()
