@@ -17,8 +17,23 @@ namespace Solution.DataStructures.Array
 
         public void Add(T item)
         {
+            if (InnerList.Length == Count)
+                DoubleArray();
             InnerList[Count] = item;
             Count++;
+        }
+
+        private void DoubleArray()
+        {
+            var temp = new T[InnerList.Length * 2];
+            // Solution - 1
+            for (int i = 0; i < InnerList.Length; i++)
+            {
+                temp[i] = InnerList[i];
+            }
+            // Solution - 2
+            //System.Array.Copy(InnerList, temp, InnerList.Length);
+            InnerList = temp;
         }
 
         public object Clone()
