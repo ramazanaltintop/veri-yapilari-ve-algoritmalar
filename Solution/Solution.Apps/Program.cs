@@ -6,7 +6,25 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            GenericArray2();
+            GenericArray3();
+        }
+
+        private static void GenericArray3()
+        {
+            var arr = new Solution
+                .DataStructures
+                .Array
+                .Array<int>();
+
+            arr.Add(25);
+            arr.Add(50);
+            arr.Add(75);
+            arr.Add(85);
+            arr.Add(91);
+
+            arr.Remove();
+
+            Console.WriteLine($"{arr.Count} / {arr.Capacity}");
         }
 
         private static void GenericArray2()

@@ -36,6 +36,15 @@ namespace Solution.DataStructures.Array
             InnerList = temp;
         }
 
+        public T Remove()
+        {
+            if (Count == 0)
+                throw new Exception("There is no more item to be removed from to the array.");
+            var item = InnerList[Count - 1];
+            Count--;
+            return item;
+        }
+
         public object Clone()
         {
             throw new NotImplementedException();
