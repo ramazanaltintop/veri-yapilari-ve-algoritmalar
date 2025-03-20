@@ -6,7 +6,37 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            GenericArray6();
+            GenericArray7();
+        }
+
+        private static void GenericArray7()
+        {
+            var arr = new Solution
+                            .DataStructures
+                            .Array
+                            .Array<int>();
+
+            for (int i = 0; i < 128; i++)
+            {
+                arr.Add(i + 1);
+                Console.WriteLine($"{i + 1} has been added to the array.");
+                Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+            }
+
+            Console.WriteLine();
+
+            for (int i = arr.Count; i >= 1; i--)
+            {
+                Console.WriteLine($"{arr.Remove()} has been removed from the array.");
+                Console.WriteLine($"{arr.Count} / {arr.Capacity}");
+            }
+
+            Console.WriteLine();
+
+            foreach (var item in arr)
+            {
+                Console.WriteLine(arr);
+            }
         }
 
         private static void GenericArray6()
