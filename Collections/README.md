@@ -10,6 +10,7 @@
 - 🟡 Aynı türden verilerin organizasyonunu sağlamak üzere;
     * Array
     * Collections kullanılabilir.
+
 ![Collections](1.png)
 
 - 🟡 **Array**, en çok sabit sayıda güçlü biçimde yazılmış nesneler oluşturmak ve bunlarla çalışmak için kullanışlıdır.
