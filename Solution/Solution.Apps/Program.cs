@@ -17,7 +17,15 @@ namespace Solution.Apps
             arr.AddRange(list);
 
             //arr.Remove(15);
-            arr.Remove(9);
+            //arr.Remove(13);
+            //arr.Remove(11);
+            //arr.Remove(9);
+            //arr.Remove(1);
+            //arr.Remove(5);
+            //arr.Remove(3);
+            //arr.Remove(7);
+
+            Console.WriteLine($"{arr.Count} / {arr.Capacity}");
 
             foreach (var item in arr)
                 Console.WriteLine(item);

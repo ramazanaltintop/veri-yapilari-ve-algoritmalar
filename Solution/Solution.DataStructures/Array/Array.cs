@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Net.NetworkInformation;
 
 namespace Solution.DataStructures.Array
 {
@@ -74,27 +75,33 @@ namespace Solution.DataStructures.Array
         {
             if (Count == 0)
                 throw new Exception("There is no more item to be removed from to the array.");
-            var temp = new T[InnerList.Length - 1];
             var index = 0;
             for (int i = 0; i < InnerList.Length; i++)
             {
-                if (InnerList[i].Equals(item))
-                    index = i;
+                if (InnerList[InnerList.Length - 1].Equals(item))
+                {
+                    Count--;
+                    break;
+                }
+                else if (InnerList[i].Equals(item))
+                {
+                    InnerList[i] = InnerList[i + 1];
+                    index = i + 1;
+                    Count--;
+                    break;
+                }
             }
             if (index != 0)
             {
-                int j = 0;
-                for (int i = 0; i < temp.Length; i++)
+                for (int i = index; i < InnerList.Length - 1; i++)
                 {
-                    if (j == index)
-                        j++;
-                    temp[i] = InnerList[j];
-                    j++;
+                    InnerList[i] = InnerList[i + 1];
                 }
+                if (InnerList.Length / 4 == Count)
+                    HalfArray();
             }
             else
                 return false;
-            InnerList = temp;
             return true;
         }
 
