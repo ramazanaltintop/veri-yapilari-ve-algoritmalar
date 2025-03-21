@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Solution.DataStructures.LinkedList.SinglyLinkedList;
+using System.Collections;
 
 namespace Solution.Apps
 {
@@ -6,7 +7,15 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            GenericArray8();
+            LinkedList1();
+        }
+
+        private static void LinkedList1()
+        {
+            var linkedList = new SinglyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddFirst(3);
+            linkedList.AddFirst(5);
         }
 
         private static void GenericArray8()
