@@ -1,1 +1,0 @@
-![Foreach Mantığı](1.png)
