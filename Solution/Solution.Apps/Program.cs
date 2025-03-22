@@ -7,6 +7,36 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            SinglyLinkedList4();
+        }
+
+        private static void SinglyLinkedList4()
+        {
+            var linkedList = new SinglyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddFirst(3);
+            linkedList.AddFirst(5);
+            // 5 > 3 > 1 => O(1)
+
+            linkedList.AddLast(6);
+            linkedList.AddLast(7);
+            // 5 > 3 > 1 > 6 > 7 => O(n)
+
+            linkedList.AddAfter(linkedList.Head.Next, 9);
+            // 5 > 3 > (9) > 1 > 6 > 7
+
+            linkedList.AddAfter(linkedList.Head.Next.Next, 11);
+            // 5 > 3 > 9 > (11) > 1 > 6 > 7
+
+            SinglyLinkedListNode<int> node = new SinglyLinkedListNode<int>(13);
+
+            // 1'den sonra 13 eklemeye calisalim.
+            linkedList.AddAfter(linkedList.Head.Next.Next.Next.Next, node);
+            // Expected = 5 > 3 > 9 > 11 > 1 > (13) > 6 > 7
+        }
+
+        private static void SinglyLinkedList3()
+        {
             var linkedList = new SinglyLinkedList<int>();
             linkedList.AddFirst(1);
             linkedList.AddFirst(3);
