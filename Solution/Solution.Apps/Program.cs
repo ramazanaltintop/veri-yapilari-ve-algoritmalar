@@ -7,10 +7,24 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            LinkedList1();
+            SinglyLinkedList2();
         }
 
-        private static void LinkedList1()
+        private static void SinglyLinkedList2()
+        {
+            var linkedList = new SinglyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddFirst(3);
+            linkedList.AddFirst(5);
+            // 5 > 3 > 1 => O(1)
+
+            linkedList.AddLast(6);
+            // 5 > 3 > 1 > 6
+            linkedList.AddLast(7);
+            // 5 > 3 > 1 > 6 > 7 => O(n)
+        }
+
+        private static void SinglyLinkedList1()
         {
             var linkedList = new SinglyLinkedList<int>();
             linkedList.AddFirst(1);

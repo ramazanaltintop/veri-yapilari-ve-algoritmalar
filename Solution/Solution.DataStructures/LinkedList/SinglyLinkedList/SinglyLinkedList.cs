@@ -10,5 +10,22 @@
             newNode.Next = Head;
             Head = newNode;
         }
+
+        public void AddLast(T value)
+        {
+            var newNode = new SinglyLinkedListNode<T>(value);
+
+            if (Head == null)
+            {
+                Head = newNode;
+            }
+
+            var current = Head;
+            while (current.Next != null)
+            {
+                current = current.Next;
+            }
+            current.Next = newNode;
+        }
     }
 }
