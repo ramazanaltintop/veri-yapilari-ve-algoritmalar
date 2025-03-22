@@ -7,7 +7,33 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList6();
+            SinglyLinkedList7();
+        }
+
+        private static void SinglyLinkedList7()
+        {
+            var list = new LinkedList<int>();
+            list.AddFirst(1);
+            list.AddFirst(2);
+            list.AddFirst(3);
+
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("***");
+
+            var linkedList = new SinglyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddFirst(2);
+            linkedList.AddFirst(3);
+            linkedList.AddFirst(4);
+
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void SinglyLinkedList6()

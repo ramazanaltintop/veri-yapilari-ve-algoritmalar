@@ -1,6 +1,8 @@
-﻿namespace Solution.DataStructures.LinkedList.SinglyLinkedList
+﻿using System.Collections;
+
+namespace Solution.DataStructures.LinkedList.SinglyLinkedList
 {
-    public class SinglyLinkedList<T>
+    public class SinglyLinkedList<T> : IEnumerable<T>
     {
         public SinglyLinkedListNode<T> Head { get; set; }
         private bool isHeadNull => Head == null;
@@ -132,6 +134,16 @@
             }
 
             throw new ArgumentException("Reference node is not found.");
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new SinglyLinkedListEnumerator<T>(Head);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
