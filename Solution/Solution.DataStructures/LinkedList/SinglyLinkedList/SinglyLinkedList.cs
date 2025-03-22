@@ -56,7 +56,7 @@
                 }
                 current = current.Next;
             }
-            throw new ArgumentException("The reference node is not in this list.");
+            throw new ArgumentException("Reference node is not found.");
         }
 
         public void AddAfter(SinglyLinkedListNode<T> refNode, SinglyLinkedListNode<T> newNode)
@@ -64,12 +64,6 @@
             if (newNode == null || refNode == null)
             {
                 throw new ArgumentNullException();
-            }
-
-            if (isHeadNull)
-            {
-                Head = newNode;
-                return;
             }
 
             var current = Head;
@@ -84,7 +78,7 @@
                 }
                 current = current.Next;
             }
-            throw new Exception("Reference node is not found.");
+            throw new ArgumentException("Reference node is not found.");
         }
 
         public void AddBefore(SinglyLinkedListNode<T> node, T value)
@@ -114,7 +108,30 @@
                 }
                 current = current.Next;
             }
-            throw new Exception("Reference node is not found.");
+            throw new ArgumentException("Reference node is not found.");
+        }
+
+        public void AddBefore(SinglyLinkedListNode<T> refNode, SinglyLinkedListNode<T> newNode)
+        {
+            if (refNode == null || newNode == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            var current = Head;
+
+            while (current != null)
+            {
+                if (current.Next.Equals(refNode))
+                {
+                    newNode.Next = current.Next;
+                    current.Next = newNode;
+                    return;
+                }
+                current = current.Next;
+            }
+
+            throw new ArgumentException("Reference node is not found.");
         }
     }
 }
