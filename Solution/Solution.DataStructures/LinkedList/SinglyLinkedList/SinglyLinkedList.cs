@@ -86,5 +86,35 @@
             }
             throw new Exception("Reference node is not found.");
         }
+
+        public void AddBefore(SinglyLinkedListNode<T> node, T value)
+        {
+            if (node == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            if (isHeadNull)
+            {
+                AddFirst(value);
+                return;
+            }
+
+            var newNode = new SinglyLinkedListNode<T>(value);
+
+            var current = Head;
+
+            while (current != null)
+            {
+                if (current.Next.Equals(node))
+                {
+                    newNode.Next = current.Next;
+                    current.Next = newNode;
+                    return;
+                }
+                current = current.Next;
+            }
+            throw new Exception("Reference node is not found.");
+        }
     }
 }

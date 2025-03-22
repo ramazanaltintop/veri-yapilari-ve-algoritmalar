@@ -7,7 +7,20 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList4();
+            SinglyLinkedList5();
+        }
+
+        private static void SinglyLinkedList5()
+        {
+            var linkedList = new SinglyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddFirst(2);
+            linkedList.AddFirst(3);
+            linkedList.AddFirst(4);
+            // 4 > 3 > 2 > 1
+
+            linkedList.AddBefore(linkedList.Head.Next.Next.Next, 5);
+            // Expected: 4 > 3 > 2 > (5) > 1
         }
 
         private static void SinglyLinkedList4()
