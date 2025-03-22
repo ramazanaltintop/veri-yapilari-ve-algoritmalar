@@ -7,7 +7,30 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList7();
+            SinglyLinkedList8();
+        }
+
+        private static void SinglyLinkedList8()
+        {
+            var linkedList = new SinglyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddFirst(2);
+            linkedList.AddFirst(3);
+            linkedList.AddFirst(4);
+
+            //foreach (var item in linkedList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            using (IEnumerator<int> enumerator = linkedList.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    var item = enumerator.Current;
+                    Console.WriteLine(item);
+                }
+            }
         }
 
         private static void SinglyLinkedList7()
