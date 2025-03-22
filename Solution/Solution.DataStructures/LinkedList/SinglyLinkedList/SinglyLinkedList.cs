@@ -4,6 +4,19 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
 {
     public class SinglyLinkedList<T> : IEnumerable<T>
     {
+        public SinglyLinkedList()
+        {
+            
+        }
+
+        public SinglyLinkedList(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+            {
+                this.AddLast(item);
+            }
+        }
+
         public SinglyLinkedListNode<T> Head { get; set; }
         private bool isHeadNull => Head == null;
 
@@ -21,6 +34,7 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
             if (isHeadNull)
             {
                 Head = newNode;
+                return;
             }
 
             var current = Head;

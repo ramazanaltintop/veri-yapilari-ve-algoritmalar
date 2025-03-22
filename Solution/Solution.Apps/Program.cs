@@ -7,7 +7,35 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList8();
+            SinglyLinkedList9();
+        }
+
+        private static void SinglyLinkedList9()
+        {
+            // diziye gore calisir
+            var arr = new char[] { 'r', 'a', 'm' };
+            //var arrList = new ArrayList(arr);
+            var list = new List<char>(arr);
+            // dinamik bellek yonetimi yapar.
+            var cLinkedList = new LinkedList<char>(arr);
+            list.AddRange(new char[] { 'd', 'e', 'f' });
+
+            // kendi yazdigimiz sinif
+            //var linkedList = new SinglyLinkedList<char>(arr);
+            var linkedList = new SinglyLinkedList<char>(list);
+
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine();
+
+            var charset = new List<char>(linkedList);
+            foreach (var item in charset)
+            {
+                Console.Write(item + " ");
+            }
         }
 
         private static void SinglyLinkedList8()
