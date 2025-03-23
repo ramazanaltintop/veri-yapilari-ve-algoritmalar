@@ -159,5 +159,14 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
         {
             return GetEnumerator();
         }
+
+        public T RemoveFirst()
+        {
+            if (isHeadNull)
+                throw new Exception("No node found to remove!");
+            var firstData = Head.Value;
+            Head = Head.Next;
+            return firstData;
+        }
     }
 }
