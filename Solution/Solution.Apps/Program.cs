@@ -7,7 +7,28 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList9();
+            LINQ();
+        }
+
+        private static void LINQ()
+        {
+            // Language Integrated Query - LINQ
+            var rnd = new Random();
+            var initial = Enumerable.Range(1, 10).OrderBy(x => rnd.Next()).ToList();
+            var linkedList = new SinglyLinkedList<int>(initial);
+
+            var q = from item in linkedList
+                    where item % 2 == 1
+                    select item;
+
+            foreach (var item in q)
+            {
+                Console.WriteLine(item);
+            }
+
+            linkedList.Where(x => x > 5)
+                .ToList()
+                .ForEach(x => Console.Write(x + " "));
         }
 
         private static void SinglyLinkedList9()
