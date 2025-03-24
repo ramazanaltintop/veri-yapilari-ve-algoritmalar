@@ -7,7 +7,26 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList10();
+            SinglyLinkedList11();
+        }
+
+        private static void SinglyLinkedList11()
+        {
+            var rnd = new Random();
+            var initial = Enumerable.Range(1, 5).OrderBy(x => rnd.Next()).ToList();
+            var list = new SinglyLinkedList<int>(initial);
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("*****");
+
+            Console.WriteLine($"{list.RemoveLast()} has been removed");
+            Console.WriteLine($"{list.RemoveLast()} has been removed");
+            Console.WriteLine($"{list.RemoveLast()} has been removed");
+            Console.WriteLine($"{list.RemoveLast()} has been removed");
+            Console.WriteLine($"{list.RemoveLast()} has been removed");
         }
 
         private static void SinglyLinkedList10()

@@ -168,5 +168,39 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
             Head = Head.Next;
             return firstData;
         }
+
+        public T RemoveLast()
+        {
+            // Solution - 1
+            //var current = Head;
+            //while (current.Next != null)
+            //{
+            //    if (current.Next.Next == null)
+            //    {
+            //        var lastData = current.Next.Value;
+            //        current.Next = null;
+            //        return lastData;
+            //    }
+            //    current = current.Next;
+            //}
+            //throw new Exception("No found to remove.");
+            // Solution - 2
+            var current = Head;
+            SinglyLinkedListNode<T> prev = null;
+            if (current.Next == null)
+            {
+                var value = current.Value;
+                Head = null;
+                return value;
+            }
+            while (current.Next != null)
+            {
+                prev = current;
+                current = current.Next;
+            }
+            var lastData = prev.Next.Value;
+            prev.Next = null;
+            return lastData;
+        }
     }
 }
