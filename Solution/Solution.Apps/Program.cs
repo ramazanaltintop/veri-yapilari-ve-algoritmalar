@@ -7,7 +7,22 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList11();
+            SinglyLinkedList12();
+        }
+
+        private static void SinglyLinkedList12()
+        {
+            var linkedList = new SinglyLinkedList<int>(new int[] { 23, 44, 32, 55 });
+            linkedList.Remove(32);
+            linkedList.Remove(55);
+            linkedList.Remove(23);
+            //linkedList.Remove(13);
+            linkedList.Remove(44);
+
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         private static void SinglyLinkedList11()
