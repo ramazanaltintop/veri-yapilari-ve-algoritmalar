@@ -10,13 +10,13 @@ namespace Solution.Apps
         {
             var list = new DoublyLinkedList<int>();
             list.AddFirst(5);
-            list.AddLast(15);
-            list.AddLast(20);
+            //list.AddLast(15);
+            //list.AddLast(20);
 
-            DoublyLinkedListNode<int> newNode = new DoublyLinkedListNode<int>(10);
+            //DoublyLinkedListNode<int> newNode = new DoublyLinkedListNode<int>(10);
 
-            list.AddAfter(list.Head, newNode);
-            list.AddAfter(list.Head.Next, 12);
+            //list.AddAfter(list.Head, newNode);
+            list.AddAfter(list.Head, 12);
         }
 
         private static void DoublyLinkedList2()

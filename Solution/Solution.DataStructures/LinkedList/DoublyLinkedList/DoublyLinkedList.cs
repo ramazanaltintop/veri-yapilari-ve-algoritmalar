@@ -84,16 +84,22 @@
             if (refNode is null)
                 throw new ArgumentNullException();
 
-            // Listede tek bir eleman bulunuyorsa ihtimalini değerlendiriyoruz.
-            if (refNode == Head && refNode == Tail)
-            {
-                AddFirst(value);
-                return;
-            }
-
             var newNode = new DoublyLinkedListNode<T>(value);
             newNode.Next = null;
             newNode.Prev = null;
+
+            // Listede tek bir eleman bulunuyorsa ihtimalini değerlendiriyoruz.
+            if (refNode == Head && refNode == Tail)
+            {
+                refNode.Next = newNode;
+                refNode.Prev = null;
+
+                newNode.Next = null;
+                newNode.Prev = refNode;
+
+                Tail = newNode;
+                return;
+            }
 
             // Listede araya eleman eklenmek isteniyorsa Tail ile refNode eşit olamaz.
             if (refNode != Tail)
@@ -112,5 +118,6 @@
                 Tail = newNode;
             }
         }
+
     }
 }
