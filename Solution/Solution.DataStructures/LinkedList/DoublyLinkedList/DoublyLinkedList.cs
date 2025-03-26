@@ -22,5 +22,23 @@
             newNode.Next = Head;
             Head = newNode;
         }
+
+        public void AddLast(T value)
+        {
+            var newNode = new DoublyLinkedListNode<T>(value);
+            newNode.Next = null;
+            newNode.Prev = null;
+
+            if (Tail == null)
+            {
+                Head = newNode;
+                Tail = newNode;
+                return;
+            }
+
+            Tail.Next = newNode;
+            newNode.Prev = Tail;
+            Tail = newNode;
+        }
     }
 }
