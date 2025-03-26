@@ -1,4 +1,5 @@
-﻿using Solution.DataStructures.LinkedList.SinglyLinkedList;
+﻿using Solution.DataStructures.LinkedList.DoublyLinkedList;
+using Solution.DataStructures.LinkedList.SinglyLinkedList;
 using System.Collections;
 
 namespace Solution.Apps
@@ -7,7 +8,10 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            
+            var list = new DoublyLinkedList<int>();
+            list.AddFirst(1);
+            list.AddFirst(2);
+            list.AddFirst(3);
         }
 
         private static void SinglyLinkedList12()
