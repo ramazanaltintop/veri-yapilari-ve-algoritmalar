@@ -7,7 +7,7 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            SinglyLinkedList12();
+            
         }
 
         private static void SinglyLinkedList12()
