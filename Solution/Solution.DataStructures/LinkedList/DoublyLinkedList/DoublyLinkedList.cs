@@ -119,5 +119,29 @@
             }
         }
 
+        public void AddBefore(DoublyLinkedListNode<T> refNode, DoublyLinkedListNode<T> newNode)
+        {
+            if (refNode is null)
+                throw new ArgumentNullException();
+
+            // Listede sadece 1 eleman bulunuyorsa
+            if (refNode == Head && refNode == Tail)
+            {
+                refNode.Prev = newNode;
+                refNode.Next = null;
+
+                newNode.Next = refNode;
+                newNode.Prev = null;
+
+                Head = newNode;
+                return;
+            }
+
+            newNode.Next = refNode;
+            newNode.Prev = refNode.Prev;
+
+            refNode.Prev.Next = newNode;
+            refNode.Prev = newNode;
+        }
     }
 }

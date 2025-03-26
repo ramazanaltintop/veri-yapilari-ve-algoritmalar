@@ -9,6 +9,20 @@ namespace Solution.Apps
         static void Main(string[] args)
         {
             var list = new DoublyLinkedList<int>();
+            list.AddFirst(10);
+
+            list.AddBefore(list.Head, new DoublyLinkedListNode<int>(8));
+            list.AddLast(12);
+            list.AddLast(14);
+            list.AddLast(16);
+            list.AddFirst(6);
+            // 6 8 10 12 14 16
+            list.AddBefore(list.Head.Next.Next.Next.Next, new DoublyLinkedListNode<int>(13));
+        }
+
+        private static void DoublyLinkedList3()
+        {
+            var list = new DoublyLinkedList<int>();
             list.AddFirst(5);
             //list.AddLast(15);
             //list.AddLast(20);
