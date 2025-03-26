@@ -79,6 +79,38 @@
             }
         }
 
-        
+        public void AddAfter(DoublyLinkedListNode<T> refNode, T value)
+        {
+            if (refNode is null)
+                throw new ArgumentNullException();
+
+            // Listede tek bir eleman bulunuyorsa ihtimalini değerlendiriyoruz.
+            if (refNode == Head && refNode == Tail)
+            {
+                AddFirst(value);
+                return;
+            }
+
+            var newNode = new DoublyLinkedListNode<T>(value);
+            newNode.Next = null;
+            newNode.Prev = null;
+
+            // Listede araya eleman eklenmek isteniyorsa Tail ile refNode eşit olamaz.
+            if (refNode != Tail)
+            {
+                newNode.Next = refNode.Next;
+                newNode.Prev = refNode;
+
+                refNode.Next.Prev = newNode;
+                refNode.Next = newNode;
+            }
+            // Listenin sonunu gösteren Tail; eğer bizim referans düğümümüz olursa listenin sonuna eleman eklemek istiyoruz demektir.
+            else
+            {
+                refNode.Next = newNode;
+                newNode.Prev = refNode;
+                Tail = newNode;
+            }
+        }
     }
 }

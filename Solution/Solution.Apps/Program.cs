@@ -16,6 +16,7 @@ namespace Solution.Apps
             DoublyLinkedListNode<int> newNode = new DoublyLinkedListNode<int>(10);
 
             list.AddAfter(list.Head, newNode);
+            list.AddAfter(list.Head.Next, 12);
         }
 
         private static void DoublyLinkedList2()
