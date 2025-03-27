@@ -121,17 +121,31 @@
 
         public void AddBefore(DoublyLinkedListNode<T> refNode, DoublyLinkedListNode<T> newNode)
         {
+            // Aradığımız referans olmayabilir.
             if (refNode is null)
-                throw new ArgumentNullException();
+                throw new ArgumentException();
 
             // Listede sadece 1 eleman bulunuyorsa
-            if (refNode == Head && refNode == Tail)
+            if (refNode.Equals(Head) && refNode.Equals(Tail))
             {
                 refNode.Prev = newNode;
                 refNode.Next = null;
 
                 newNode.Next = refNode;
                 newNode.Prev = null;
+
+                Head = newNode;
+                return;
+            }
+
+            // En az 2 elemanlıysa
+            // Listenin başına ekleme yapılmak isteniyorsa
+            if (refNode.Equals(Head) && Tail is not null)
+            {
+                newNode.Next = refNode;
+                newNode.Prev = null;
+
+                refNode.Prev = newNode;
 
                 Head = newNode;
                 return;

@@ -8,10 +8,20 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            DoublyLinkedList<int> linkedList = new DoublyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(4);
+            linkedList.AddLast(5);
+
+            linkedList.AddBefore(linkedList.Head.Next.Next, new DoublyLinkedListNode<int>(3));
+        }
+
+        private static void DoublyLinkedList5()
+        {
             var list = new DoublyLinkedList<int>();
-            list.AddFirst(1);
-            list.AddLast(2);
-            list.AddBefore(list.Head, 0);
+            list.AddFirst(10);
+            list.AddBefore(list.Head, 5);
         }
 
         private static void DoublyLinkedList4()
