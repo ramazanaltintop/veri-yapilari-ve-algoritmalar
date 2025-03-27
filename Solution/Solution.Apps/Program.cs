@@ -8,6 +8,11 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+
+        }
+
+        private static void DoublyLinkedList6()
+        {
             DoublyLinkedList<int> linkedList = new DoublyLinkedList<int>();
             linkedList.AddFirst(1);
             linkedList.AddLast(2);

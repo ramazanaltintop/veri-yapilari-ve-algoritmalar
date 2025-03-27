@@ -17,7 +17,7 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
             }
         }
 
-        public SinglyLinkedListNode<T> Head { get; set; }
+        public SinglyLinkedListNode<T>? Head { get; set; }
         private bool isHeadNull => Head == null;
 
         public void AddFirst(T value)
@@ -45,11 +45,11 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
             current.Next = newNode;
         }
 
-        public void AddAfter(SinglyLinkedListNode<T> node, T value)
+        public void AddAfter(SinglyLinkedListNode<T> refNode, T value)
         {
-            if (node == null)
+            if (refNode is null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentException("Reference node is not found.");
             }
 
             if (isHeadNull)
@@ -62,9 +62,9 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
 
             var current = Head;
 
-            while (current != null)
+            while (current is not null)
             {
-                if (current.Equals(node))
+                if (current == refNode)
                 {
                     newNode.Next = current.Next;
                     current.Next = newNode;
@@ -77,16 +77,16 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
 
         public void AddAfter(SinglyLinkedListNode<T> refNode, SinglyLinkedListNode<T> newNode)
         {
-            if (newNode == null || refNode == null)
+            if (refNode is null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentException("Reference node is not found.");
             }
 
             var current = Head;
 
-            while (current != null)
+            while (current is not null)
             {
-                if (current.Equals(refNode))
+                if (current == refNode)
                 {
                     newNode.Next = current.Next;
                     current.Next = newNode;
@@ -97,11 +97,11 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
             throw new ArgumentException("Reference node is not found.");
         }
 
-        public void AddBefore(SinglyLinkedListNode<T> node, T value)
+        public void AddBefore(SinglyLinkedListNode<T> refNode, T value)
         {
-            if (node == null)
+            if (refNode is null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentException("Reference node is not found.");
             }
 
             if (isHeadNull)
@@ -114,9 +114,9 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
 
             var current = Head;
 
-            while (current != null)
+            while (current is not null)
             {
-                if (current.Next.Equals(node))
+                if (current.Next == refNode)
                 {
                     newNode.Next = current.Next;
                     current.Next = newNode;
@@ -129,16 +129,16 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
 
         public void AddBefore(SinglyLinkedListNode<T> refNode, SinglyLinkedListNode<T> newNode)
         {
-            if (refNode == null || newNode == null)
+            if (refNode is null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentException("Reference node is not found.");
             }
 
             var current = Head;
 
-            while (current != null)
+            while (current is not null)
             {
-                if (current.Next.Equals(refNode))
+                if (current.Next == refNode)
                 {
                     newNode.Next = current.Next;
                     current.Next = newNode;
@@ -163,7 +163,7 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
         public T RemoveFirst()
         {
             if (isHeadNull)
-                throw new Exception("No node found to remove!");
+                throw new ArgumentException("No node found to remove!");
             var firstData = Head.Value;
             Head = Head.Next;
             return firstData;
@@ -171,29 +171,17 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
 
         public T RemoveLast()
         {
-            // Solution - 1
-            //var current = Head;
-            //while (current.Next != null)
-            //{
-            //    if (current.Next.Next == null)
-            //    {
-            //        var lastData = current.Next.Value;
-            //        current.Next = null;
-            //        return lastData;
-            //    }
-            //    current = current.Next;
-            //}
-            //throw new Exception("No found to remove.");
-            // Solution - 2
+            if (isHeadNull)
+                throw new ArgumentException("Underflow! No found to remove.");
             var current = Head;
-            SinglyLinkedListNode<T> prev = null;
-            if (current.Next == null)
+            SinglyLinkedListNode<T>? prev = null;
+            if (current.Next is null)
             {
                 var value = current.Value;
                 Head = null;
                 return value;
             }
-            while (current.Next != null)
+            while (current.Next is not null)
             {
                 prev = current;
                 current = current.Next;
@@ -206,54 +194,50 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
         public void Remove(T value)
         {
             if (isHeadNull)
-                throw new Exception("Underflow! No found to remove.");
-            if (value == null)
-                throw new ArgumentNullException();
+                throw new ArgumentException("Underflow! No found to remove.");
 
             var current = Head;
             SinglyLinkedListNode<T> prev = null;
 
-            do
+            // Tek elemanlı bir listemiz varsa
+            if (current.Next is null)
+            {
+                // Eleman bulunursa sil
+                if (current.Value.Equals(value))
+                {
+                    Head = null;
+                    return;
+                }
+            }
+
+            // En az 2 elemanlı ise
+            if (current.Next is not null)
+            {
+                prev = current;
+                current = current.Next;
+                // ilk eleman aranan eleman ise sil
+                if (prev.Value.Equals(value))
+                {
+                    Head = current;
+                    prev.Next = null;
+                    return;
+                }
+            }
+
+            // ikinci elemanın değerini kontrol ederek başlıyoruz.
+            // eğer aranılan değer değilse two-pointer tekniği uygulanır.
+            while (current is not null)
             {
                 if (current.Value.Equals(value))
                 {
-                    // son eleman mı?
-                    if (current.Next == null)
-                    {
-                        // head
-                        if (prev == null)
-                        {
-                            Head = null;
-                            return;
-                        }
-                        // son eleman
-                        else
-                        {
-                            prev.Next = null;
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        // head
-                        if (prev == null)
-                        {
-                            Head = Head.Next;
-                            return;
-                        }
-                        // ara düğüm
-                        else
-                        {
-                            prev.Next = current.Next;
-                            return;
-                        }
-                    }
+                    prev.Next = current.Next;
+                    current.Next = null;
+                    return;
                 }
                 prev = current;
                 current = current.Next;
-            } while (current != null);
-
-            throw new ArgumentException("The value could not be found");
+            }
+            throw new ArgumentException("No node found to remove.");
         }
     }
 }

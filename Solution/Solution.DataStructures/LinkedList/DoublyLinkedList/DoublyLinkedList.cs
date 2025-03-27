@@ -2,8 +2,8 @@
 {
     public class DoublyLinkedList<T>
     {
-        public DoublyLinkedListNode<T> Head { get; set; }
-        public DoublyLinkedListNode<T> Tail { get; set; }
+        public DoublyLinkedListNode<T>? Head { get; set; }
+        public DoublyLinkedListNode<T>? Tail { get; set; }
 
         public void AddFirst(T value)
         {
@@ -11,7 +11,7 @@
             newNode.Next = null;
             newNode.Prev = null;
 
-            if (Head == null)
+            if (Head is null)
             {
                 Head = newNode;
                 Tail = newNode;
@@ -29,7 +29,7 @@
             newNode.Next = null;
             newNode.Prev = null;
 
-            if (Tail == null)
+            if (Tail is null)
             {
                 Head = newNode;
                 Tail = newNode;
@@ -82,7 +82,7 @@
         public void AddAfter(DoublyLinkedListNode<T> refNode, T value)
         {
             if (refNode is null)
-                throw new ArgumentNullException();
+                throw new ArgumentException("Reference node is not found.");
 
             var newNode = new DoublyLinkedListNode<T>(value);
             newNode.Next = null;
@@ -123,10 +123,10 @@
         {
             // Aradığımız referans olmayabilir.
             if (refNode is null)
-                throw new ArgumentException();
+                throw new ArgumentException("Reference node is not found.");
 
             // Listede sadece 1 eleman bulunuyorsa
-            if (refNode.Equals(Head) && refNode.Equals(Tail))
+            if (refNode == Head && refNode == Tail)
             {
                 refNode.Prev = newNode;
                 refNode.Next = null;
@@ -140,7 +140,7 @@
 
             // En az 2 elemanlıysa
             // Listenin başına ekleme yapılmak isteniyorsa
-            if (refNode.Equals(Head) && Tail is not null)
+            if (refNode == Head && Tail is not null)
             {
                 newNode.Next = refNode;
                 newNode.Prev = null;
@@ -162,7 +162,7 @@
         {
             // Aradığımız referans olmayabilir. Bu istisnayı kontrol ettik.
             if (refNode is null)
-                throw new ArgumentException();
+                throw new ArgumentException("Reference node is not found.");
 
             var newNode = new DoublyLinkedListNode<T>(value);
             newNode.Next = null;
