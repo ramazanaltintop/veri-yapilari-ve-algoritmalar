@@ -143,5 +143,48 @@
             refNode.Prev.Next = newNode;
             refNode.Prev = newNode;
         }
+
+        public void AddBefore(DoublyLinkedListNode<T> refNode, T value)
+        {
+            // Aradığımız referans olmayabilir. Bu istisnayı kontrol ettik.
+            if (refNode is null)
+                throw new ArgumentException();
+
+            var newNode = new DoublyLinkedListNode<T>(value);
+            newNode.Next = null;
+            newNode.Prev = null;
+
+            // Listede tek bir eleman varsa durumunu kontrol edelim.
+            if (refNode == Head && refNode == Tail)
+            {
+                newNode.Next = refNode;
+                newNode.Prev = null;
+
+                refNode.Prev = newNode;
+                refNode.Next = null;
+
+                Head = newNode;
+                return;
+            }
+
+            // En başa eleman ekleyeceksek
+            if (refNode == Head && Tail is not null)
+            {
+                newNode.Next = refNode;
+                newNode.Prev = null;
+
+                refNode.Prev = newNode;
+
+                Head = newNode;
+                return;
+            }
+
+            // Aksi halde ekleyeceğimiz eleman araya ekleme olacaktır.
+            newNode.Next = refNode;
+            newNode.Prev = refNode.Prev;
+
+            refNode.Prev.Next = newNode;
+            refNode.Prev = newNode;
+        }
     }
 }
