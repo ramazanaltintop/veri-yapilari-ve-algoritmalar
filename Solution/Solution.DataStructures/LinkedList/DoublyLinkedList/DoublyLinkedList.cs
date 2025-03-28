@@ -1,6 +1,8 @@
-﻿namespace Solution.DataStructures.LinkedList.DoublyLinkedList
+﻿using System.Collections;
+
+namespace Solution.DataStructures.LinkedList.DoublyLinkedList
 {
-    public class DoublyLinkedList<T>
+    public class DoublyLinkedList<T> : IEnumerable
     {
         public DoublyLinkedListNode<T>? Head { get; set; }
         public DoublyLinkedListNode<T>? Tail { get; set; }
@@ -199,6 +201,23 @@
 
             refNode.Prev.Next = newNode;
             refNode.Prev = newNode;
+        }
+
+        private List<DoublyLinkedListNode<T>> GetAllNodes()
+        {
+            var list = new List<DoublyLinkedListNode<T>>();
+            var current = Head;
+            while (current is not null)
+            {
+                list.Add(current);
+                current = current.Next;
+            }
+            return list;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return GetAllNodes().GetEnumerator();
         }
     }
 }
