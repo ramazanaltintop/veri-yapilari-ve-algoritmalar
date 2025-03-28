@@ -163,7 +163,7 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
         public T RemoveFirst()
         {
             if (isHeadNull)
-                throw new ArgumentException("No node found to remove!");
+                throw new ArgumentException("There are no nodes in the list");
             var firstData = Head.Value;
             Head = Head.Next;
             return firstData;
@@ -172,7 +172,7 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
         public T RemoveLast()
         {
             if (isHeadNull)
-                throw new ArgumentException("Underflow! No found to remove.");
+                throw new ArgumentException("There are no nodes in the list");
             var current = Head;
             SinglyLinkedListNode<T>? prev = null;
             if (current.Next is null)
@@ -194,7 +194,7 @@ namespace Solution.DataStructures.LinkedList.SinglyLinkedList
         public void Remove(T value)
         {
             if (isHeadNull)
-                throw new ArgumentException("Underflow! No found to remove.");
+                throw new ArgumentException("There are no nodes in the list");
 
             var current = Head;
             SinglyLinkedListNode<T> prev = null;

@@ -238,7 +238,7 @@ namespace Solution.DataStructures.LinkedList.DoublyLinkedList
         public T RemoveFirst()
         {
             if (isHeadNull)
-                throw new ArgumentException("No node found to remove.");
+                throw new ArgumentException("There are no nodes in the list");
             var firstValue = Head.Value;
             if (Head == Tail)
             {
@@ -256,7 +256,7 @@ namespace Solution.DataStructures.LinkedList.DoublyLinkedList
         public T RemoveLast()
         {
             if (isTailNull)
-                throw new ArgumentException("No node found to remove.");
+                throw new ArgumentException("There are no nodes in the list");
 
             var temp = Head.Value;
             if (Head == Tail)
