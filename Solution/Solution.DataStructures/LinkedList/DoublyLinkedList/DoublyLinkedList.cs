@@ -7,9 +7,11 @@ namespace Solution.DataStructures.LinkedList.DoublyLinkedList
         public DoublyLinkedListNode<T>? Head { get; set; }
         public DoublyLinkedListNode<T>? Tail { get; set; }
 
+        private bool isHeadNull => Head is null;
+
         public DoublyLinkedList()
         {
-            
+
         }
 
         public DoublyLinkedList(IEnumerable<T> collection)
@@ -229,6 +231,24 @@ namespace Solution.DataStructures.LinkedList.DoublyLinkedList
         public IEnumerator GetEnumerator()
         {
             return GetAllNodes().GetEnumerator();
+        }
+
+        public T RemoveFirst()
+        {
+            if (isHeadNull)
+                throw new ArgumentException("No node found to remove.");
+            var firstValue = Head.Value;
+            if (Head == Tail)
+            {
+                Head = null;
+                Tail = null;
+            }
+            else
+            {
+                Head = Head.Next;
+                Head.Prev = null;
+            }
+            return firstValue;
         }
     }
 }

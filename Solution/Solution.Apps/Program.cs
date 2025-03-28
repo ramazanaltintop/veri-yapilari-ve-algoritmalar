@@ -15,6 +15,11 @@ namespace Solution.Apps
             }
             Console.WriteLine("****");
             list = new DoublyLinkedList<char>(new char[] { 'r', 'm', 'z' });
+
+            Console.WriteLine($"{list.RemoveFirst()} has been removed from the list!...");
+            Console.WriteLine($"{list.RemoveFirst()} has been removed from the list!...");
+            Console.WriteLine($"{list.RemoveFirst()} has been removed from the list!...");
+
             foreach (var item in list)
             {
                 Console.WriteLine(item);
