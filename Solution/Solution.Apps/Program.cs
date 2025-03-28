@@ -8,6 +8,20 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            DoublyLinkedList<int> linkedList = new DoublyLinkedList<int>();
+            linkedList.AddFirst(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(3);
+            linkedList.AddLast(4);
+            Console.WriteLine($"{linkedList.RemoveLast()} has been removed from the list.");
+            foreach (var item in linkedList)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private static void DoublyLinkedList8()
+        {
             var list = new DoublyLinkedList<char>(new List<char>() { 'a', 'b', 'c' });
             foreach (var item in list)
             {

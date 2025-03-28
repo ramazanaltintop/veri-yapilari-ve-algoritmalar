@@ -9,6 +9,8 @@ namespace Solution.DataStructures.LinkedList.DoublyLinkedList
 
         private bool isHeadNull => Head is null;
 
+        private bool isTailNull => Tail is null;
+
         public DoublyLinkedList()
         {
 
@@ -249,6 +251,25 @@ namespace Solution.DataStructures.LinkedList.DoublyLinkedList
                 Head.Prev = null;
             }
             return firstValue;
+        }
+
+        public T RemoveLast()
+        {
+            if (isTailNull)
+                throw new ArgumentException("No node found to remove.");
+
+            var temp = Head.Value;
+            if (Head == Tail)
+            {
+                Head = null;
+                Tail = null;
+            }
+            else
+            {
+                Tail.Prev.Next = null;
+                Tail = Tail.Prev;
+            }
+            return temp;
         }
     }
 }
