@@ -271,5 +271,58 @@ namespace Solution.DataStructures.LinkedList.DoublyLinkedList
             }
             return temp;
         }
+
+        public void Remove(T value)
+        {
+            // DONE: Listede eleman olmama durumunu kontrol et.
+            if (isHeadNull)
+                throw new ArgumentException("There are no nodes in the list");
+
+            // DONE: Listede 1 eleman olma durumunu kontrol et.
+            if (Head == Tail)
+            {
+                if (Head.Value.Equals(value))
+                {
+                    Head = null;
+                    Tail = null;
+                    return;
+                }
+            }
+
+            // DONE: Listenin en az 2 elemanlı olma durumlarını kontrol et.
+            // DONE: Listenin başından eleman silme durumunu kontrol et.
+            var current = Head;
+            if (current.Value.Equals(value))
+            {
+                current.Next.Prev = null;
+                Head = Head.Next;
+                return;
+            }
+
+            while (current.Next is not null)
+            {
+                current = current.Next;
+                if (current.Value.Equals(value))
+                {
+                    // son elemansa
+                    if (current == Tail)
+                    {
+                        current.Prev.Next = null;
+                        Tail = Tail.Prev;
+                        return;
+                    }
+                    // arada bir elemansa
+                    else
+                    {
+                        current.Prev.Next = current.Next;
+                        current.Next.Prev = current.Prev;
+                        return;
+                    }
+                }
+
+            }
+            // DONE: Aranılan değer bulunamazsa hata fırlat.
+            throw new ArgumentException("No node found to remove.");
+        }
     }
 }
