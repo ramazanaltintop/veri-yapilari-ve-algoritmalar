@@ -8,6 +8,21 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            var list = new DoublyLinkedList<char>(new List<char>() { 'a', 'b', 'c' });
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("****");
+            list = new DoublyLinkedList<char>(new char[] { 'r', 'm', 'z' });
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private static void DoublyLinkedList7()
+        {
             DoublyLinkedList<int> linkedList = new DoublyLinkedList<int>();
             linkedList.AddFirst(1);
             linkedList.AddLast(2);
