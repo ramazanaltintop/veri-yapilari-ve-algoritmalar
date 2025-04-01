@@ -41,7 +41,7 @@
     public interface IStack<T>
     {
         int Count { get; }
-        void Push(T item);
+        void Push(T value);
         T Peek();
         T Pop();
         void Clear();

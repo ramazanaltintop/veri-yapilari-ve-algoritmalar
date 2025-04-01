@@ -19,7 +19,7 @@
             throw new NotImplementedException();
         }
 
-        public void Push(T item)
+        public void Push(T value)
         {
             throw new NotImplementedException();
         }

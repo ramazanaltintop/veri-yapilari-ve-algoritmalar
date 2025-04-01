@@ -2,26 +2,45 @@
 {
     internal class ListStack<T> : IStack<T>
     {
-        public int Count => throw new NotImplementedException();
+        public int Count { get; private set; }
+        private readonly List<T> list = new List<T>();
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            if (Count == 0)
+                throw new InvalidOperationException("Stack is already empty.");
+            while (Count > 0)
+            {
+                list.RemoveAt(list.Count - 1);
+                Count--;
+            }
         }
 
         public T Peek()
         {
-            throw new NotImplementedException();
+            if (Count > 0)
+                return list[list.Count - 1];
+            throw new InvalidOperationException("Stack is empty.");
         }
 
         public T Pop()
         {
-            throw new NotImplementedException();
+            if (Count > 0)
+            {
+                var temp = list[list.Count - 1];
+                list.RemoveAt(list.Count - 1);
+                Count--;
+                return temp;
+            }
+            throw new InvalidOperationException("Stack is empty.");
         }
 
-        public void Push(T item)
+        public void Push(T value)
         {
-            throw new NotImplementedException();
+            if (value is null)
+                throw new ArgumentNullException("Value cannot be null.");
+            list.Add(value);
+            Count++;
         }
     }
 }
