@@ -1,15 +1,15 @@
 ﻿namespace Solution.DataStructures.Stack
 {
-    internal class ListStack<T> : IStack<T>
+    public class ListStack<T> : IStack<T>
     {
-        public int Count { get; private set; }
         private readonly List<T> list = new List<T>();
+        public int Count { get; private set; }
 
         public void Clear()
         {
             if (Count == 0)
                 throw new InvalidOperationException("Stack is already empty.");
-            while (Count > 0)
+            while (Count != 0)
             {
                 list.RemoveAt(list.Count - 1);
                 Count--;

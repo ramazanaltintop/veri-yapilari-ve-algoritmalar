@@ -1,27 +1,43 @@
-﻿namespace Solution.DataStructures.Stack
+﻿using Solution.DataStructures.LinkedList.SinglyLinkedList;
+
+namespace Solution.DataStructures.Stack
 {
-    internal class LinkedListStack<T> : IStack<T>
+    public class LinkedListStack<T> : IStack<T>
     {
-        public int Count => throw new NotImplementedException();
+        private readonly SinglyLinkedList<T> list = new SinglyLinkedList<T>();
+        public int Count { get; private set; }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            if (Count == 0)
+                throw new InvalidOperationException("Stack is already empty.");
+            list.Head = null;
+            Count = 0;
         }
 
         public T Peek()
         {
-            throw new NotImplementedException();
+            if (Count == 0)
+                throw new InvalidOperationException("Stack is empty.");
+            return list.Head.Value;
         }
 
         public T Pop()
         {
-            throw new NotImplementedException();
+            if (Count == 0)
+                throw new InvalidOperationException("Stack is empty.");
+            var temp = list.Head.Value;
+            list.Head = list.Head.Next;
+            Count--;
+            return temp;
         }
 
         public void Push(T value)
         {
-            throw new NotImplementedException();
+            if (value is null)
+                throw new ArgumentNullException("Value cannot be null.");
+            list.AddFirst(value);
+            Count++;
         }
     }
 }
