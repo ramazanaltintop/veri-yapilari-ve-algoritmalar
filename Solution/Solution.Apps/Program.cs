@@ -8,6 +8,11 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            Stack();
+        }
+
+        private static void PostfixWithStack()
+        {
             // Expected : -4
             Console.WriteLine(PostfixExample.Run("231*+9-"));
         }
@@ -17,37 +22,45 @@ namespace Solution.Apps
             var charSet = new char[] { 'r', 'a', 'm', 'a', 'z', 'a', 'n' };
             var stack1 = new DataStructures.Stack.Stack<char>(DataStructures.Stack.StackType.List);
             var stack2 = new DataStructures.Stack.Stack<char>(DataStructures.Stack.StackType.LinkedList);
+            var stack3 = new DataStructures.Stack.Stack<char>(DataStructures.Stack.StackType.Array);
 
             foreach (char c in charSet)
             {
                 Console.WriteLine(c);
                 stack1.Push(c);
                 stack2.Push(c);
+                stack3.Push(c);
             }
 
             Console.WriteLine("\nPeek");
             Console.WriteLine($"Stack1: {stack1.Peek()}");
             Console.WriteLine($"Stack2: {stack2.Peek()}");
+            Console.WriteLine($"Stack3: {stack3.Peek()}");
 
             Console.WriteLine("\nCount");
             Console.WriteLine($"Stack1: {stack1.Count}");
             Console.WriteLine($"Stack2: {stack2.Count}");
+            Console.WriteLine($"Stack3: {stack3.Count}");
 
             Console.WriteLine("\nPop");
             Console.WriteLine($"{stack1.Pop()} has been removed from the stack1.");
             Console.WriteLine($"{stack2.Pop()} has been removed from the stack2.");
+            Console.WriteLine($"{stack3.Pop()} has been removed from the stack3.");
 
             Console.WriteLine("\nCount");
             Console.WriteLine($"Stack1: {stack1.Count}");
             Console.WriteLine($"Stack2: {stack2.Count}");
+            Console.WriteLine($"Stack3: {stack3.Count}");
 
             Console.WriteLine("\nClear");
             stack1.Clear();
             stack2.Clear();
+            stack3.Clear();
 
             Console.WriteLine("\nCount");
             Console.WriteLine($"Stack1: {stack1.Count}");
             Console.WriteLine($"Stack2: {stack2.Count}");
+            Console.WriteLine($"Stack3: {stack3.Count}");
         }
 
         private static void DoublyLinkedList10()

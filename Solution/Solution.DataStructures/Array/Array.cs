@@ -40,6 +40,11 @@ namespace Solution.DataStructures.Array
             Count++;
         }
 
+        public T GetLastItem()
+        {
+            return InnerList[Count - 1];
+        }
+
         public void AddRange(IEnumerable<T> collection)
         {
             foreach (var item in collection)

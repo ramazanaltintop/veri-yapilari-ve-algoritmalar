@@ -11,6 +11,10 @@
             {
                 _stack = new ListStack<T>();
             }
+            else if (type == StackType.Array)
+            {
+                _stack = new ArrayStack<T>();
+            }
             else
             {
                 _stack = new LinkedListStack<T>();
@@ -51,5 +55,6 @@
     {
         List = 0,           // List<T>
         LinkedList = 1,     // SinglyLinkedList<T>
+        Array = 2           // []
     }
 }
