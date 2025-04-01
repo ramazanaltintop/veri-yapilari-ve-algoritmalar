@@ -8,6 +8,44 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            var charSet = new char[] { 'r', 'a', 'm', 'a', 'z', 'a', 'n' };
+            var stack1 = new DataStructures.Stack.Stack<char>(DataStructures.Stack.StackType.List);
+            var stack2 = new DataStructures.Stack.Stack<char>(DataStructures.Stack.StackType.LinkedList);
+
+            foreach (char c in charSet)
+            {
+                Console.WriteLine(c);
+                stack1.Push(c);
+                stack2.Push(c);
+            }
+
+            Console.WriteLine("\nPeek");
+            Console.WriteLine($"Stack1: {stack1.Peek()}");
+            Console.WriteLine($"Stack2: {stack2.Peek()}");
+
+            Console.WriteLine("\nCount");
+            Console.WriteLine($"Stack1: {stack1.Count}");
+            Console.WriteLine($"Stack2: {stack2.Count}");
+
+            Console.WriteLine("\nPop");
+            Console.WriteLine($"{stack1.Pop()} has been removed from the stack1.");
+            Console.WriteLine($"{stack2.Pop()} has been removed from the stack2.");
+
+            Console.WriteLine("\nCount");
+            Console.WriteLine($"Stack1: {stack1.Count}");
+            Console.WriteLine($"Stack2: {stack2.Count}");
+
+            Console.WriteLine("\nClear");
+            stack1.Clear();
+            stack2.Clear();
+
+            Console.WriteLine("\nCount");
+            Console.WriteLine($"Stack1: {stack1.Count}");
+            Console.WriteLine($"Stack2: {stack2.Count}");
+        }
+
+        private static void DoublyLinkedList10()
+        {
             DoublyLinkedList<int> linkedList = new DoublyLinkedList<int>();
             linkedList.AddFirst(1);
             linkedList.AddLast(2);

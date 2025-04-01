@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Solution.DataStructures.Stack.Stack&lt;T&gt;">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAQAAACAAAAAAAAAAABACBA=</HashCode>
+      <FileName>Stack\Stack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.DataStructures.Stack.ListStack&lt;T&gt;">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAEAAAAAAAAAAQAAACAAAAAAAAAAABACAA=</HashCode>
+      <FileName>Stack\ListStack.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.DataStructures.Stack.LinkedListStack&lt;T&gt;">
+    <Position X="6.25" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAEAAAAAAAAAAQAAACAAAAAAAAAAABACAA=</HashCode>
+      <FileName>Stack\LinkedListStack.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Solution.DataStructures.Stack.IStack&lt;T&gt;">
+    <Position X="1" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAQAAACAAAAAAAAAAABACAA=</HashCode>
+      <FileName>Stack\Stack.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Solution.DataStructures.Stack.StackType">
+    <Position X="1" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Stack\Stack.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
