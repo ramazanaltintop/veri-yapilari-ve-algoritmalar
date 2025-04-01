@@ -8,6 +8,12 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            // Expected : -4
+            Console.WriteLine(PostfixExample.Run("231*+9-"));
+        }
+
+        private static void Stack()
+        {
             var charSet = new char[] { 'r', 'a', 'm', 'a', 'z', 'a', 'n' };
             var stack1 = new DataStructures.Stack.Stack<char>(DataStructures.Stack.StackType.List);
             var stack2 = new DataStructures.Stack.Stack<char>(DataStructures.Stack.StackType.LinkedList);
