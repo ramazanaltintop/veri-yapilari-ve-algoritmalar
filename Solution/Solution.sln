@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.Apps", "Solution.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.DataStructures", "Solution.DataStructures\Solution.DataStructures.csproj", "{98F80A13-C490-4903-A1A2-5AFB803D5562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.CommonDataStructure", "CommonDataStructure\Solution.CommonDataStructure.csproj", "{FF535BF1-8CA6-4DED-9209-2C54CC47B547}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution.CommonDataStructure", "Solution.CommonDataStructure\Solution.CommonDataStructure.csproj", "{FF535BF1-8CA6-4DED-9209-2C54CC47B547}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
