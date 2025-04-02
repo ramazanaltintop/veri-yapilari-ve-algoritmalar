@@ -8,7 +8,32 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            Stack();
+            var numbers = new int[] { 10, 20, 30, 40 };
+            var queue1 = new DataStructures.Queue.Queue<int>();
+            var queue2 = new DataStructures.Queue.Queue<int>(DataStructures.Queue.QueueType.LinkedList);
+
+            foreach (var number in numbers)
+            {
+                Console.WriteLine(number);
+                queue1.EnQueue(number);
+                queue2.EnQueue(number);
+            }
+
+            Console.WriteLine("\nCount:");
+            Console.WriteLine($"queue1: {queue1.Count}");
+            Console.WriteLine($"queue2: {queue2.Count}");
+
+            Console.WriteLine("\nDeQueue:");
+            Console.WriteLine($"{queue1.DeQueue()} has been removed from the queue1.");
+            Console.WriteLine($"{queue2.DeQueue()} has been removed from the queue2.");
+
+            Console.WriteLine("\nPeek:");
+            Console.WriteLine($"queue1: {queue1.Peek()}");
+            Console.WriteLine($"queue2: {queue2.Peek()}");
+
+            Console.WriteLine("\nCount:");
+            Console.WriteLine($"queue1: {queue1.Count}");
+            Console.WriteLine($"queue2: {queue2.Count}");
         }
 
         private static void PostfixWithStack()
