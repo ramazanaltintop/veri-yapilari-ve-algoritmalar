@@ -1,4 +1,4 @@
-﻿namespace Solution.DataStructures.Tree.BST
+﻿namespace Solution.DataStructures.Tree.BinarySearchTree
 {
     public class Node<T>
     {
