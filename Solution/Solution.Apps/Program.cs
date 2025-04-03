@@ -22,7 +22,7 @@ namespace Solution.Apps
 
             binaryTree
                 .InOrder(BST.Root)
-                .ForEach(n => Console.Write($"{n} "));
+                .ForEach(n => Console.Write($"{n, -4}"));
 
             binaryTree.ClearList();
 
@@ -30,7 +30,15 @@ namespace Solution.Apps
 
             binaryTree
                 .PreOrder(BST.Root)
-                .ForEach(n => Console.Write($"{n} "));
+                .ForEach(n => Console.Write($"{n, -4}"));
+
+            Console.WriteLine();
+
+            binaryTree.ClearList();
+
+            binaryTree
+                .PostOrder(BST.Root)
+                .ForEach(n => Console.Write($"{n, -4}"));
         }
 
         private static void Queue()
