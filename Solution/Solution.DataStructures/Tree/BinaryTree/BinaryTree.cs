@@ -8,6 +8,7 @@
         {
             list = new List<Node<T>>();
         }
+
         public List<Node<T>> InOrder(Node<T> root)
         {
             if (root is not null)
@@ -18,5 +19,18 @@
             }
             return list;
         }
+
+        public List<Node<T>> PreOrder(Node<T> root)
+        {
+            if (root is not null)
+            {
+                list.Add(root);
+                PreOrder(root.Left);
+                PreOrder(root.Right);
+            }
+            return list;
+        }
+
+        public void ClearList() => list.Clear();
     }
 }

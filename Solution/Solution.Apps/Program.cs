@@ -17,9 +17,20 @@ namespace Solution.Apps
             //{
             //    Console.WriteLine(node);
             //}
-            new BinaryTree<int>()
+
+            var binaryTree = new BinaryTree<int>();
+
+            binaryTree
                 .InOrder(BST.Root)
-                .ForEach(n => Console.WriteLine(n));
+                .ForEach(n => Console.Write($"{n} "));
+
+            binaryTree.ClearList();
+
+            Console.WriteLine();
+
+            binaryTree
+                .PreOrder(BST.Root)
+                .ForEach(n => Console.Write($"{n} "));
         }
 
         private static void Queue()
