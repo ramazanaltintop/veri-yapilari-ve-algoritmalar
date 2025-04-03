@@ -1,5 +1,6 @@
 ﻿using Solution.DataStructures.LinkedList.DoublyLinkedList;
 using Solution.DataStructures.LinkedList.SinglyLinkedList;
+using Solution.DataStructures.Tree.BinarySearchTree;
 using System.Collections;
 
 namespace Solution.Apps
@@ -7,6 +8,11 @@ namespace Solution.Apps
     internal class Program
     {
         static void Main(string[] args)
+        {
+            var BST = new BinarySearchTree<int>(new int[] {23, 16, 45, 3, 22, 37, 99});
+        }
+
+        private static void Queue()
         {
             var numbers = new int[] { 10, 20, 30, 40 };
             var queue1 = new DataStructures.Queue.Queue<int>();

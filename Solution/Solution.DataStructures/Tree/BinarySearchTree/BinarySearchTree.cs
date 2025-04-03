@@ -12,6 +12,12 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
             
         }
 
+        public BinarySearchTree(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+                Add(item);
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
@@ -25,7 +31,7 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
         public void Add(T value)
         {
             if (value is null)
-                throw new ArgumentNullException("value", "Value cannot be null.");
+                throw new ArgumentNullException(nameof(value), "Value cannot be null.");
             var newNode = new Node<T>(value);
             if (Root is null)
             {
