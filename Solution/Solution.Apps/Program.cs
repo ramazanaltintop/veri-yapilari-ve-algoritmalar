@@ -1,6 +1,7 @@
 ﻿using Solution.DataStructures.LinkedList.DoublyLinkedList;
 using Solution.DataStructures.LinkedList.SinglyLinkedList;
 using Solution.DataStructures.Tree.BinarySearchTree;
+using Solution.DataStructures.Tree.BinaryTree;
 using System.Collections;
 
 namespace Solution.Apps
@@ -10,6 +11,15 @@ namespace Solution.Apps
         static void Main(string[] args)
         {
             var BST = new BinarySearchTree<int>(new int[] {23, 16, 45, 3, 22, 37, 99});
+            //List<Node<int>> list = new BinaryTree<int>().InOrder(BST.Root);
+
+            //foreach (var node in list)
+            //{
+            //    Console.WriteLine(node);
+            //}
+            new BinaryTree<int>()
+                .InOrder(BST.Root)
+                .ForEach(n => Console.WriteLine(n));
         }
 
         private static void Queue()
