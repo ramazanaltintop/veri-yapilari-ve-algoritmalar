@@ -21,5 +21,45 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
         {
             throw new NotImplementedException();
         }
+
+        public void Add(T value)
+        {
+            if (value is null)
+                throw new ArgumentNullException("value", "Value cannot be null.");
+            var newNode = new Node<T>(value);
+            if (Root is null)
+            {
+                Root = newNode;
+            }
+            else
+            {
+                Node<T> current = Root;
+                Node<T> parent;
+                while (true)
+                {
+                    parent = current;
+                    // sol alt ağaç ise
+                    if (value.CompareTo(current.Value) < 0)
+                    {
+                        current = current.Left;
+                        if (current is null)
+                        {
+                            parent.Left = newNode;
+                            break;
+                        }
+                    }
+                    // sağ alt ağaç ise
+                    else
+                    {
+                        current = current.Right;
+                        if (current is null)
+                        {
+                            parent.Right = newNode;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
