@@ -14,6 +14,22 @@ namespace Solution.Apps
             var binaryTree = new BinaryTree<int>();
 
             binaryTree
+                .PreOrder(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+
+            Console.WriteLine();
+
+            binaryTree
+                .PreOrderNonRecursiveTraversal(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+        }
+
+        private static void InOrderTraversal()
+        {
+            var BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
+            var binaryTree = new BinaryTree<int>();
+
+            binaryTree
                 .InOrder(BST.Root)
                 .ForEach(n => Console.Write($"{n,-4}"));
 

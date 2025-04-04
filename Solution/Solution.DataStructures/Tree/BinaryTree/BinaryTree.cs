@@ -58,6 +58,25 @@
             return list;
         }
 
+        public List<Node<T>> PreOrderNonRecursiveTraversal(Node<T> root)
+        {
+            List<Node<T>> result = new List<Node<T>>();
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root cannot be null.");
+            var stack = new DataStructures.Stack.Stack<Node<T>>();
+            stack.Push(root);
+            while (stack.Count != 0)
+            {
+                var tmp = stack.Pop();
+                result.Add(tmp);
+                if (tmp.Right is not null)
+                    stack.Push(tmp.Right);
+                if (tmp.Left is not null)
+                    stack.Push(tmp.Left);
+            }
+            return result;
+        }
+
         public List<Node<T>> PostOrder(Node<T> root)
         {
             if (root is not null)
