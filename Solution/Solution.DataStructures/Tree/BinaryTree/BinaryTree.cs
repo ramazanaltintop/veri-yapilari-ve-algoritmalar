@@ -20,6 +20,33 @@
             return list;
         }
 
+        public List<Node<T>> InOrderNonRecursiveTraversal(Node<T> root)
+        {
+            var result = new List<Node<T>>();
+            var stack = new DataStructures.Stack.Stack<Node<T>>();
+            Node<T> currentNode = root;
+            bool done = false;
+            while (!done)
+            {
+                if (currentNode is not null)
+                {
+                    stack.Push(currentNode);
+                    currentNode = currentNode.Left;
+                }
+                else if (stack.Count == 0)
+                {
+                    done = true;
+                }
+                else
+                {
+                    currentNode = stack.Pop();
+                    result.Add(currentNode);
+                    currentNode = currentNode.Right;
+                }
+            }
+            return result;
+        }
+
         public List<Node<T>> PreOrder(Node<T> root)
         {
             if (root is not null)

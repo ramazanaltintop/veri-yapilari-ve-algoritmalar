@@ -10,7 +10,23 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            var BST = new BinarySearchTree<int>(new int[] {23, 16, 45, 3, 22, 37, 99});
+            var BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
+            var binaryTree = new BinaryTree<int>();
+
+            binaryTree
+                .InOrder(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+
+            Console.WriteLine();
+
+            binaryTree
+                .InOrderNonRecursiveTraversal(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+        }
+
+        private static void BinaryTree()
+        {
+            var BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
             //List<Node<int>> list = new BinaryTree<int>().InOrder(BST.Root);
 
             //foreach (var node in list)
@@ -22,7 +38,7 @@ namespace Solution.Apps
 
             binaryTree
                 .InOrder(BST.Root)
-                .ForEach(n => Console.Write($"{n, -4}"));
+                .ForEach(n => Console.Write($"{n,-4}"));
 
             binaryTree.ClearList();
 
@@ -30,7 +46,7 @@ namespace Solution.Apps
 
             binaryTree
                 .PreOrder(BST.Root)
-                .ForEach(n => Console.Write($"{n, -4}"));
+                .ForEach(n => Console.Write($"{n,-4}"));
 
             Console.WriteLine();
 
@@ -38,7 +54,7 @@ namespace Solution.Apps
 
             binaryTree
                 .PostOrder(BST.Root)
-                .ForEach(n => Console.Write($"{n, -4}"));
+                .ForEach(n => Console.Write($"{n,-4}"));
         }
 
         private static void Queue()
