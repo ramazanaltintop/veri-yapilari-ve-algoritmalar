@@ -88,6 +88,58 @@
             return list;
         }
 
+        public List<Node<T>> PostOrderNonRecursiveTraversal(Node<T> root)
+        {
+            var result = new List<Node<T>>();
+            var stack = new DataStructures.Stack.Stack<Node<T>>();
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root cannot be null.");
+            Node<T> temp;
+            stack.Push(root);
+            int count = 0;
+            while (true)
+            {
+                temp = stack.Peek();
+
+                Node<T> isFound = result.Where(n => n == temp.Left || n == temp.Right).FirstOrDefault();
+
+                if (isFound is null)
+                {
+                    if (temp.Right is not null)
+                    {
+                        stack.Push(temp.Right);
+                    }
+                    if (temp.Left is not null)
+                    {
+                        stack.Push(temp.Left);
+                    }
+                }
+                else
+                {
+                    temp = stack.Pop();
+                    result.Add(temp);
+                    if (stack.Count == 0)
+                        break;
+                    isFound = null;
+                }
+
+                if (temp.Right is null && temp.Left is null && count < 2)
+                {
+                    temp = stack.Pop();
+                    result.Add(temp);
+                    count++;
+                    if (count == 2)
+                    {
+                        temp = stack.Pop();
+                        result.Add(temp);
+                        count = 0;
+                    }
+                }
+                
+            }
+            return result;
+        }
+
         public void ClearList() => list.Clear();
     }
 }
