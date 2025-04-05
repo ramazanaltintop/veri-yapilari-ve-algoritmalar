@@ -79,5 +79,16 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
             return current;
         }
         
+        public Node<T> FindMax(Node<T> root)
+        {
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root cannot be null.");
+            Node<T> current = root;
+            while (current.Right is not null)
+            {
+                current = current.Right;
+            }
+            return current;
+        }
     }
 }

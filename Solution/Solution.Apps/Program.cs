@@ -10,7 +10,10 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            LevelOrderTraversal();
+            var BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
+
+            Console.WriteLine($"Minimum value: {BST.FindMin(BST.Root)}");
+            Console.WriteLine($"Maximum value: {BST.FindMax(BST.Root)}");
         }
 
         private static void LevelOrderTraversal()
