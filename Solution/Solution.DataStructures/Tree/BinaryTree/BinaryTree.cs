@@ -140,6 +140,25 @@
             return result;
         }
 
+        public List<Node<T>> LevelOrderNonRecursiveTraversal(Node<T> root)
+        {
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root cannot be null.");
+            var result = new List<Node<T>>();
+            var queue = new DataStructures.Queue.Queue<Node<T>>();
+            queue.EnQueue(root);
+            while (queue.Count != 0)
+            {
+                var temp = queue.DeQueue();
+                result.Add(temp);
+                if (temp.Left is not null)
+                    queue.EnQueue(temp.Left);
+                if (temp.Right is not null)
+                    queue.EnQueue(temp.Right);
+            }
+            return result;
+        }
+
         public void ClearList() => list.Clear();
     }
 }

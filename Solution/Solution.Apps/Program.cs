@@ -10,6 +10,31 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            LevelOrderTraversal();
+        }
+
+        private static void LevelOrderTraversal()
+        {
+            var BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
+            var binaryTree = new BinaryTree<int>();
+
+            binaryTree
+                .LevelOrderNonRecursiveTraversal(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+
+            Console.WriteLine();
+
+            BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 21, 37, 99, 2, 10, 20, 22, 32, 39, 55, 101 });
+
+            binaryTree.ClearList();
+
+            binaryTree
+                .LevelOrderNonRecursiveTraversal(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+        }
+
+        private static void PostOrderTraversal()
+        {
             var BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
             var binaryTree = new BinaryTree<int>();
 
