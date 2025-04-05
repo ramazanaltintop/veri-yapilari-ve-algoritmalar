@@ -10,7 +10,7 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
 
         public BinarySearchTree()
         {
-            
+
         }
 
         public BinarySearchTree(IEnumerable<T> collection)
@@ -78,7 +78,7 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
                 current = current.Left;
             return current;
         }
-        
+
         public Node<T> FindMax(Node<T> root)
         {
             if (root is null)
@@ -87,6 +87,23 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
             while (current.Right is not null)
             {
                 current = current.Right;
+            }
+            return current;
+        }
+
+        public Node<T> Find(Node<T> root, T key)
+        {
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root cannot be null.");
+            Node<T> current = root;
+            while (key.CompareTo(current.Value) != 0)
+            {
+                if (key.CompareTo(current.Value) < 0)
+                    current = current.Left;
+                else
+                    current = current.Right;
+                if (current is null)
+                    throw new KeyNotFoundException("Searched key not found.");
             }
             return current;
         }

@@ -14,6 +14,11 @@ namespace Solution.Apps
 
             Console.WriteLine($"Minimum value: {BST.FindMin(BST.Root)}");
             Console.WriteLine($"Maximum value: {BST.FindMax(BST.Root)}");
+
+            Node<int> node = BST.Find(BST.Root, 16);
+            Console.WriteLine($"{node.Value} node is found!");
+            Console.WriteLine($"Node's Left: {node.Left.Value}\n" +
+                $"Node's Right: {node.Right.Value}");
         }
 
         private static void LevelOrderTraversal()
