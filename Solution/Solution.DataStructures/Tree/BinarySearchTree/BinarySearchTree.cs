@@ -69,6 +69,15 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
             }
         }
 
+        public Node<T> FindMin(Node<T> root)
+        {
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root cannot be null.");
+            Node<T> current = root;
+            while (current.Left is not null)
+                current = current.Left;
+            return current;
+        }
         
     }
 }
