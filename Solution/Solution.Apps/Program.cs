@@ -10,7 +10,16 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
-            var BST = new BinarySearchTree<int>(new int[] { 60, 40, 70, 20, 45, 65, 85, 50});
+            var bst = new BinarySearchTree<byte>(new byte[] { 60, 40, 70 });
+
+            Console.WriteLine($"Min         : {bst.FindMin(bst.Root)}");
+            Console.WriteLine($"Max         : {bst.FindMax(bst.Root)}");
+            Console.WriteLine($"Depth       : {DataStructures.Tree.BinaryTree.BinaryTree<byte>.MaxDepth(bst.Root)}");
+        }
+
+        private static void BSTRemove()
+        {
+            var BST = new BinarySearchTree<int>(new int[] { 60, 40, 70, 20, 45, 65, 85, 50 });
 
             var binaryTree = new BinaryTree<int>();
 
