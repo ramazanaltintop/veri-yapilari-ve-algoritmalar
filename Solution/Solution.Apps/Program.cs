@@ -10,6 +10,27 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            var BST = new BinarySearchTree<int>(new int[] { 60, 40, 70, 20, 45, 65, 85, 50});
+
+            var binaryTree = new BinaryTree<int>();
+
+            binaryTree
+                .InOrder(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+
+            binaryTree.ClearList();
+
+            Console.WriteLine();
+
+            BST.Remove(BST.Root, 70);
+
+            binaryTree
+                .InOrder(BST.Root)
+                .ForEach(n => Console.Write($"{n,-4}"));
+        }
+
+        private static void BSTMinMaxFind()
+        {
             var BST = new BinarySearchTree<int>(new int[] { 23, 16, 45, 3, 22, 37, 99 });
 
             Console.WriteLine($"Minimum value: {BST.FindMin(BST.Root)}");

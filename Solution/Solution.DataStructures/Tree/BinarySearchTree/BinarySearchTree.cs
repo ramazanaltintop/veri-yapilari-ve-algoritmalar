@@ -107,5 +107,38 @@ namespace Solution.DataStructures.Tree.BinarySearchTree
             }
             return current;
         }
+
+        public Node<T> Remove(Node<T> root, T key)
+        {
+            // Ağacın kökünün null olup olmadığını kontrol et
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root is cannot be null.");
+
+            // Aranan değer kökün değerinden küçükse sol alt ağaçtan ilerle
+            if (key.CompareTo(root.Value) < 0)
+            {
+                root.Left = Remove(root.Left, key);
+            }
+            // Aranan değer kökün değerinden büyükse sağ alt ağaçtan ilerle
+            else if (key.CompareTo(root.Value) > 0)
+            {
+                root.Right = Remove(root.Right, key);
+            }
+            // aranan değer bulunursa silme işlemine geç
+            else
+            {
+                // silinecek düğüm
+                // tek çocuk ya da
+                // çocuksuz ise
+                if (root.Left is null)
+                    return root.Right;
+                else if (root.Right is null)
+                    return root.Left;
+                // aksi halde 2 çocuk var
+                root.Value = FindMin(root.Right).Value;
+                root.Right = Remove(root.Right, root.Value);
+            }
+            return root;
+        }
     }
 }
