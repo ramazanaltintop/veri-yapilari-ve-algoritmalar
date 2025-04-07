@@ -10,6 +10,20 @@ namespace Solution.Apps
     {
         static void Main(string[] args)
         {
+            var bt = new DataStructures
+                .Tree
+                .BinaryTree
+                .BinaryTree<char>();
+            bt.Root = new Node<char>('F');
+            bt.Root.Left = new Node<char>('A');
+            bt.Root.Left.Left = new Node<char>('D');
+            bt.Root.Right = new Node<char>('T');
+
+            Console.WriteLine($"Deepest Node : {bt.DeepestNode(bt.Root)}");
+        }
+
+        private static void BTMaxDepth()
+        {
             var bst = new BinarySearchTree<byte>(new byte[] { 60, 40, 70 });
 
             Console.WriteLine($"Min         : {bst.FindMin(bst.Root)}");

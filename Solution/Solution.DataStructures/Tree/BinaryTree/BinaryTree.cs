@@ -2,6 +2,8 @@
 {
     public class BinaryTree<T> where T : IComparable
     {
+        public Node<T> Root { get; set; }
+
         public List<Node<T>> list { get; private set; }
 
         public BinaryTree()
@@ -171,6 +173,24 @@
             return (leftDepth > rightDepth)
                 ? leftDepth + 1
                 : rightDepth + 1;
+        }
+
+        public Node<T> DeepestNode(Node<T> root)
+        {
+            Node<T> temp = null;
+            if (root is null)
+                throw new ArgumentNullException(nameof(root), "The tree root cannot be null.");
+            var queue = new DataStructures.Queue.Queue<Node<T>>();
+            queue.EnQueue(root);
+            while (queue.Count > 0)
+            {
+                temp = queue.DeQueue();
+                if (temp.Left is not null)
+                    queue.EnQueue(temp.Left);
+                if (temp.Right is not null)
+                    queue.EnQueue(temp.Right);
+            }
+            return temp;
         }
     }
 }
